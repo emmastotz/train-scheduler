@@ -26,7 +26,6 @@
     <!-- Link to Javascript Logic -->
     <script type="text/javascript" src="assets/javascript/app.js"></script>
     
-    
   </head>
 
   <body>
@@ -38,14 +37,23 @@
     </div>
 
     <div class="container">
+      
       <div class="card">
         <div class="card-header">Schedule</div>
-        <div class="card-body">
-          <hr>
-          <hr>
-          <hr>
-        </div>
-      </div>
+        <div class="card-body"></div>
+          <div class="row">
+            <div class="col-1" id="offset"></div>
+            <div class="col-2" id="train-name">Train Name</div>
+            <div class="col-2" id="destination">Destination</div>
+            <div class="col-2" id="frequency">Frequency</div>
+            <div class="col-2" id="next-arrival">Next Arrival</div>
+            <div class="col-2" id="minutes-away">Minutes Away</div>
+            <div class="col-1" id="offset"></div>
+            <hr>
+          </div>
+      </div>      
+
+      <br>
   
       <div class="card">
         <div class="card-header">Add Train</div>
@@ -67,7 +75,10 @@
               <label for="exampleInputEmail1">Frequency:</label>
               <input class="form-control" type="text" placeholder="">
             </div>
-            
+            <div class="button-div">
+              <button type="button" class="btn btn-dark">Submit</button>
+              <button type="clear" class="btn btn-dark">Clear</button>
+            </div>
           </form>
         </div>
       </div>
