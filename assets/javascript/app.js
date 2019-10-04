@@ -48,7 +48,9 @@ $(document).ready(function(){
         console.log(tRemainder);
         var tMinToTrain = trainFreq - tRemainder;
         console.log("Minutes until next train: " + tMinToTrain);
-        var nextTrain = moment(nextTrain).format("hh:mm");
+        var nextTrain = currentTime.add(tMinToTrain, "minute");
+        console.log("Time to next train: " + nextTrain);
+        //var nextTrain = moment(tMinToTrain).format("hh:mm");
         // ================================================================
         
         // Adds the data from firebase to the new columns
@@ -56,7 +58,7 @@ $(document).ready(function(){
         tdTrainDestination.text(trainDest);
         tdTrainDepartureTime.text(trainDepart);
         tdTrainFrequency.text(trainFreq);
-        tdNextTrain.text(nextTrain);
+        tdNextTrain.text(tMinToTrain);
 
         // Appends the new columns to the new row
         newRow.append(tdTrainNumber);
@@ -64,9 +66,11 @@ $(document).ready(function(){
         newRow.append(tdTrainDepartureTime);
         newRow.append(tdTrainFrequency);
         newRow.append(tdNextTrain);
+
+        // Appends the new row to the table
+        $(".train-data-display").append(newRow)
       }
-      // Appends the new row to the table
-      $(".train-data-display").append(newRow)
+      
     }
 
   }, function(errorObject) {
